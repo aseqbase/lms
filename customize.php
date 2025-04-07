@@ -26,7 +26,7 @@
     )
 );
 
-\_::$Info->Surtcuts = array(
+\_::$Info->Shortcuts = array(
     array("Name" => "MENU", "Path" => "viewSideMenu()", "Image" => "bars"),
     array("Name" => "COURSE", "Path" => \_::$Address->CategoryRoute."Course", "Image" => "book"),
     array("Name" => "HOME", "Path" => "/", "Image" => "home"),

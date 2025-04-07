@@ -21,7 +21,9 @@ function findContent($direction){
         view("contents", [
             "Title" => "Exercises",
             "RootRoute" => "/exercise/",
-            "CheckAccess" => fn($item)=>\_::$Back->User->Access() == getValid($item, 'Access' , 0),
+            "CheckAccess" => function($item){
+                return \_::$Back->User->Access(\_::$Config->AdminAccess) || \_::$Back->User->Access(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access' , \_::$Config->VisitAccess))));
+            },
             "Description" => "Find your exercise",
             "Items" => logic("content/all", ["Filter" => ["Type" => "Query"]])
         ]);
@@ -32,7 +34,9 @@ function findContent($direction){
             view("contents", [
                 "Title" => preg_replace("/\..*$/", "", \Req::$Page),
                 "RootRoute" => "/exercise/",
-                "CheckAccess" => fn($item)=>\_::$Back->User->Access() == getValid($item, 'Access' , 0),
+                "CheckAccess" => function($item){
+                    return \_::$Back->User->Access(\_::$Config->AdminAccess)  || \_::$Back->User->Access(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access' , \_::$Config->VisitAccess))));
+                },
                 "Description" => "Find your exercise",
                 "Items" => logic("content/all", [
                     "Filter" => [

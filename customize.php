@@ -1,7 +1,6 @@
 <?php
-\_::$Info->MainMenus = \_::$Info->SideMenus = array(
-    array("Name" => "HOME", "Path" => "/", "Image" => "home"),
-    array("Name" => "EXERCISE", "Path" => "/exercise", "Image" => "calendar"),
+$menus = [
+    array("Name" => "EXERCISE", "Path" => "/exercises", "Image" => "calendar"),
     array(
         "Name" => "COURSE",
         "Path" => \_::$Address->CategoryRoute."Course",
@@ -15,22 +14,23 @@
             )
     ),
     array(
-        "Name" => "CONTACT",
+        "Name" => "CONTACTS",
         "Path" => "/contact",
-        "Image" => "address-book",
+        "Image" => "envelope",
         "Items" => array(
-            array("Name" => "FORUM", "Path" => "/forum", "Image" => "comments"),
+            array("Name" => "FORUMS", "Path" => "/forums", "Image" => "comments"),
             array("Name" => "CONTACTS", "Path" => "/contact", "Image" => "address-book"),
             array("Name" => "ABOUT", "Path" => "/about", "Image" => "info")
         )
     )
-);
-
-\_::$Info->Shortcuts = array(
+];
+\_::$Info->MainMenus = [...\_::$Info->MainMenus,...$menus];
+\_::$Info->SideMenus = [...\_::$Info->SideMenus,...$menus];
+\_::$Info->Shortcuts = [
     array("Name" => "MENU", "Path" => "viewSideMenu()", "Image" => "bars"),
     array("Name" => "COURSE", "Path" => \_::$Address->CategoryRoute."Course", "Image" => "book"),
-    array("Name" => "HOME", "Path" => "/", "Image" => "home"),
-    array("Name" => "EXERCISE", "Path" => "/exercise", "Image" => "calendar"),
-    array("Name" => "CONTACT", "Path" => "/contact", "Image" => "address-book")
-);
+    array("Name" => "HOME", "Path" => \_::$Info->HomePath, "Image" => "home"),
+    array("Name" => "EXERCISE", "Path" => "/exercises", "Image" => "calendar"),
+    array("Name" => "CONTACT", "Path" => "/contact", "Image" => "envelope")
+];
 ?>

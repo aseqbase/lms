@@ -2,7 +2,7 @@
 use \MiMFa\Library\User;
 module("SignUpForm");
 $module = new \MiMFa\Module\SignUpForm();
-$module->GroupOptions = table("UserGroup")->DoSelectPairs("`Id`", "`Title`", "`Id`>=100");
+$module->GroupOptions = table("UserGroup")->SelectPairs("`Id`", "`Title`", "`Id`>=100");
 swap($module, $data);
 $module->Render();
 if($module->Result)

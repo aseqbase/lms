@@ -4,20 +4,9 @@ To create a Learning Management System, with all accessibility and equipment, fo
 * <a href="http://github.com//aseqbase/aseqbase">aseqbase/aseqbase</a>
 ## Installations
 1. Install all dependencies
-  ### To make the Main Domain of aseqbase website
-  2. Open a terminal in the home directory (public_html) of the website, then install the project by:
+2. Open a terminal in the home directory (public_html) of the website, then install the project by:
 	
- 	> composer create-project aseqbase/lms
-  or
-	
- 	> composer require aseqbase/lms
-  ### To make the Sub Domain of aseqbase website
-  2. Open a terminal in your subdomain directory (public_html/[my-subdomain-name]/), then install the framework by:
-	
- 	> composer create-project aseqbase/lms
-  or
-	
- 	> composer require aseqbase/lms
+ 	> composer create-project aseqbase/lms my-subdomain-name
 3. Create an opitonal file name `global.php` on the root directory with the bellow codes:
   ```
   <?php

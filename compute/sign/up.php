@@ -1,16 +1,16 @@
 <?php
-use \MiMFa\Library\User;
+
 module("SignUpForm");
 $module = new \MiMFa\Module\SignUpForm();
 $module->GroupOptions = table("UserGroup")->SelectPairs("`Id`", "`Title`", "`Id`>=100");
 swap($module, $data);
 $module->Render();
 if($module->Result)
-    if (User::$InitialStatus < User::$ActiveStatus)
-        load(User::$ActiveHandlerPath."?Email=".urlencode(\_::$Back->User->TemporaryEmail));
+    if (\User::$InitialStatus < \User::$ActiveStatus)
+        load(\User::$ActiveHandlerPath."?Email=".urlencode(\_::$User->TemporaryEmail));
     else {
-        \_::$Back->User->Refresh();
-        load(User::$InHandlerPath);
+        \_::$User->Refresh();
+        load(\User::$InHandlerPath);
     }
 return $module->Result;
 ?>

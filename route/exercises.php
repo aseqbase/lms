@@ -12,9 +12,9 @@ route("contents", [
         "RootRoute" => "/exercise/",
         "CollectionRoute" => "/exercises/",
         "CheckAccess" => function ($item) {
-            return \_::$Back->User->Access(\_::$Config->AdminAccess) || \_::$Back->User->Access(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access', \_::$Config->VisitAccess))));
+            return \_::$User->Access(\_::$Config->AdminAccess) || \_::$User->Access(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access', \_::$Config->VisitAccess))));
         },
-        "ErrorHandler" => fn()=>view("part", \MiMFa\Library\User::$InHandlerPath),
+        "ErrorHandler" => fn()=>view("part", \User::$InHandlerPath),
     ],
     "ErrorHandler" => "Could not find related exercise"
 ]);

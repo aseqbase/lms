@@ -9,8 +9,8 @@ route("contents", [
         "Title" => "Your Exercises",
         "Description" => "Find your exercise",
         "Image"=>"calendar",
-        "RootRoute" => "/exercise/",
-        "CollectionRoute" => "/exercises/",
+        "Root" => "/exercise/",
+        "CollectionRoot" => "/exercises/",
         "CheckAccess" => function ($item) {
             return \_::$User->Access(\_::$Config->AdminAccess) || \_::$User->Access(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access', \_::$Config->VisitAccess))));
         },

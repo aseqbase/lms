@@ -1,6 +1,8 @@
 # Learning Management System (Project)
 > aseqbase/lms
-To create a Learning Management System, with all accessibility and equipment, for an aseqbase website...
+
+The objective is to develop a comprehensive Learning Management System, ensuring that it is fully equipped with all necessary accessibility features and required equipment. This Learning Management System will be specifically designed for integration with the existing aseqbase website. The intention is to provide a robust and user-friendly platform that facilitates effective online learning experiences, while adhering to the highest standards of accessibility for all users. The system should incorporate all the essential tools and resources needed for both instructors and learners to successfully engage with the online educational content offered through the aseqbase website, guaranteeing a seamless and inclusive learning environment.
+
 ## Dependencies
 * <a href="http://github.com//aseqbase/aseqbase">aseqbase/aseqbase</a>
 <h2>Managements</h2>

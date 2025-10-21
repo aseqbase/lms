@@ -3,7 +3,7 @@ $menus = [
     array("Name" => "EXERCISES", "Path" => "/exercises", "Image" => "calendar"),
     "Course"=>array(
         "Name" => "COURSES",
-        "Path" => \_::$Base->CategoryRoot."Course",
+        "Path" => \_::$Address->CategoryRoot."Course",
         "Image" => "book",
         "Items" => []
     ),
@@ -20,14 +20,14 @@ $menus = [
 ];
 $courses = [];
 foreach(array_slice(compute("category/all", ["Direction"=>"Course"]), 1) as $item)
-    $courses[] = ["Name"=>$item["Title"], "Path"=>\_::$Base->CategoryRoot."Course/".$item["Name"]];
+    $courses[] = ["Name"=>$item["Title"], "Path"=>\_::$Address->CategoryRoot."Course/".$item["Name"]];
 $menus["Course"]["Items"] = $courses;
 
 \_::$Info->MainMenus = [...\_::$Info->MainMenus,...$menus];
 \_::$Info->SideMenus = [...\_::$Info->SideMenus,...$menus];
 \_::$Info->Shortcuts = [
     array("Name" => "MENU", "Path" => "viewSideMenu()", "Image" => "bars"),
-    array("Name" => "COURSES", "Path" => \_::$Base->CategoryRoot."Course", "Image" => "book"),
+    array("Name" => "COURSES", "Path" => \_::$Address->CategoryRoot."Course", "Image" => "book"),
     array("Name" => "HOME", "Path" => \_::$Info->HomePath, "Image" => "home"),
     array("Name" => "EXERCISES", "Path" => "/exercises", "Image" => "calendar"),
     array("Name" => "CONTACTS", "Path" => "/contact", "Image" => "envelope")

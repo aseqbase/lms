@@ -18,41 +18,35 @@ The objective is to develop a comprehensive Learning Management System, ensuring
 			``` bash
 			> composer require aseqbase/lms
 			> cd vendor/aseqbase/lms
-			> composer dev:install
+			vendor/aseqbase/lms> composer dev:install
 			```
   3. Put the destination directory of your project on the appeared step (for example, `D:\MyWebsite\lms\`)
 		``` bash
 		Destination Directory [D:\MyWebsite\]: D:\MyWebsite\lms\
 		```
   4. Follow the steps to finish the installation of sources, database, etc.
-  * [optional] Create an optional file named `global.php` in the `lms` directory with the following script:
-	  ``` php
-	  <?php
-		$BASE = '.aseq'; 			// (Optional) The parent directory you want to inherit all properties except what you changed
-		$ASEQ = 'lms'; 			// (Optional) The current subdomain sequence, or leave null if this file is in the root directory
-		$SEQUENCES_PATCH = [];	// (Optional) An array to apply your custom changes in \_::$Sequences
-									// newdirectory, newaseq; // Add new directory to the \_::$Sequences
-									// directory, newaseq; // Update directory in the \_::$Sequences
-									// directory, null; // Remove thw directory from the \_::$Sequences
-	  ?>
-	  ```
-  5. Enjoy...
+  5. [optional] On the local server, create an optional file named `global.php` in the `lms` directory  to change your-parent-directory-name (from the `.aseq`) using:
+		``` bash
+		> composer lms:create global --aseq "lms" --base "your-parent-directory-name" -f
+		```
+		or
+		``` bash
+		> cd vendor/aseqbase/lms
+		vendor/aseqbase/lms> composer dev:create global --aseq "lms" --base "your-parent-directory-name" -f
+		```
+		**Note**: Do not forget to replace "your-parent-directory-name" with your item (default `.aseq`). 
+  6. Enjoy...
+
 <h3>Using</h3>
 
   1. Do one of the following options:
 	  	* Visit its special URL (for example, `http://lms.[my-domain-name].com`, or `http://[my-domain-name].com/lms`)
 		* On the local server:
-			1. Create or update file named `global.php` in the root directory with at least the following script:
-	  			``` php
-	  			<?php
-					$BASE = 'lms'; // To set the base directory you want to see at the root of `localhost`
-	 			 ?>
-	  			```
-			2. Use the following command on the root directory
+			1. Use the following command on the root directory
 				``` bash
 				> composer start
 		  		```
-		  	3. Visit the URL `localhost:8000` on the local browser
+		  	2. Visit the URL `localhost:8000` (for default) on the local browser
   2. Enjoy...
 
 <h3>Updating</h3>
@@ -64,35 +58,35 @@ The objective is to develop a comprehensive Learning Management System, ensuring
 		or
 		``` bash
   		> cd vendor/aseqbase/lms
-		> composer dev:update
+		vendor/aseqbase/lms> composer dev:update
 		```
   2. Follow the steps to finish the update of sources, database, etc.
   3. Enjoy...
 
 <h3>Uninstalling</h3>
 
-  1. Uninstall the project and the constructed database using
+  1. Uninstall the project and the constructed database using:
 		``` bash
 		> composer lms:unistall
 		```
 		or
 		``` bash
   		> cd vendor/aseqbase/lms
-		> composer dev:unistall
+		vendor/aseqbase/lms> composer dev:unistall
 		```
   2. Follow the steps to finish the uninstallation of sources, database, etc.
   3. Enjoy...
 
 <h4>Creating</h4>
 
-  1. Create a new file by a predefined template name (for example, global, config, back, router, front, user, info, etc.) using
+  1. Create a new file by a predefined template name (for example, global, config, back, router, front, user, info, etc.) using:
 		``` bash
 		> composer lms:create [predefined-template-name]
 		```
 		or
 		``` bash
   		> cd vendor/aseqbase/lms
-		> composer dev:create [predefined-template-name]
+		vendor/aseqbase/lms> composer dev:create [predefined-template-name]
 		```
   2. Follow the steps to finish creating the file.
   3. Enjoy...

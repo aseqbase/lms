@@ -3,7 +3,7 @@
 module("SignUpForm");
 $module = new \MiMFa\Module\SignUpForm();
 $module->GroupOptions = table("UserGroup")->SelectPairs("`Id`", "`Title`", "`Id`>=100");
-swap($module, $data);
+dip($module, $data);
 $module->Render();
 if($module->Result)
     if (\_::$User->InitialStatus < \_::$User->ActiveStatus)

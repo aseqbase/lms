@@ -32,5 +32,3 @@ $menus["Course"]["Items"] = $courses;
     array("Name" => "EXERCISES", "Path" => "/exercises", "Image" => "calendar"),
     array("Name" => "CONTACTS", "Path" => "/contact", "Image" => "envelope")
 ];
-
-?>

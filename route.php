@@ -9,7 +9,7 @@
 \_::$Router->On("exercises")->Default("exercises");
 \_::$Router->On("exercise")->Default("exercise");
 \_::$Router->On("$|home")
-    ->if(\_::$User->GetAccess(\_::$User->UserAccess))->Default(fn()=>view("part",["Name"=>"sign/dashboard"]))
+    ->if(\_::$User->HasAccess(\_::$User->UserAccess))->Default(fn()=>view("part",["Name"=>"sign/dashboard"]))
     ->else()->Default(fn()=>view("part", ["Name"=>"sign/in"]));
 
 // To route other requests to the DefaultRouteName

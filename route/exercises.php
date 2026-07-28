@@ -11,7 +11,7 @@ route("contents", [
         "Image"=>"calendar",
         "Root" => "/exercise/",
         "CollectionRoot" => "/exercises/",
-        "CheckAccess" => function ($item) {
+        "CheckAccess" => function ($item=null) {
             return \_::$User->HasAccess(\_::$User->AdminAccess) || \_::$User->HasAccess(\MiMFa\Library\Convert::ToSequence(\MiMFa\Library\Convert::FromJson(getValid($item, 'Access', \_::$User->VisitAccess))));
         },
         "ErrorHandler" => fn()=>view("part", \_::$User->InHandlerPath),
